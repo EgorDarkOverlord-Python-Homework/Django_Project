@@ -1,0 +1,22 @@
+{% extends "base_page.html" %}
+{% block content %}  
+<div class="main_block">
+    <div class="header text-shadow-big">Настройки</div>
+    <p class="text-shadow">Выберите сложность и количество задач</p>
+    <form class="form" method="post" action="start">               
+        {% csrf_token %}
+        <p class="text-shadow">Сложность:</p>
+        <select id="difficulty" name="difficulty" value="easy">
+            <option value="easy">Легко</option>
+            <option value="medium">Средне</option>
+            <option value="hard">Тяжело</option>
+        </select>            
+        <p class="text-shadow">Количество задач:</p> 
+        <input id="task_count" name="task_count" type="number" min="1" max="15" value="5" required />
+        <br><br>
+        <div class="button-container">
+            <input class="button" type="submit" value="Старт" />
+        </div>             
+    </form>
+</div>    
+{% endblock %}    

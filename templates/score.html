@@ -1,0 +1,27 @@
+{% extends "base_page.html" %}
+{% block content %}
+<div class="main_block">
+    <p class="text-shadow">Ваш результат:</p>
+    <div class="header text-shadow-big">{{ correct_count }} / {{ task_count }}</div>            
+    <table>
+        <tr>
+            <th>Вопрос</th>
+            <th>Ваш ответ</th>
+            <th>Правильный ответ</th>
+        </tr>  
+        {% for task, answer, correct in stats %}
+        <tr {% if correct %}
+            class="correct"
+            {% else %}
+            class="incorrect"
+            {% endif %}
+        >
+            <td>{{ task.task_string }}</td>
+            <td>{{ answer }}</td>
+            <td>{{ task.correct_answer }}</td>
+        </tr> 
+        {% endfor %}
+        </table>  
+    <a class="button" href="/index">Вернуться на главную страницу</a>
+</div>  
+{% endblock %} 

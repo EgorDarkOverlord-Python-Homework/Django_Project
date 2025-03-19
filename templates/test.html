@@ -1,0 +1,16 @@
+{% extends "base_page.html" %}
+{% block content %}
+<div class="main_block">
+    <p class="text-shadow">Вопрос {{ task_number }}/{{ task_count }}</p>
+    <div class="header text-shadow-big">{{ task.task_string }} = ?</div>         
+    <form class="form" method="post" action="test">               
+        {% csrf_token %}           
+        <p class="text-shadow">Ваш ответ:</p> 
+        <input id="answer" name="answer" type="number" required />
+        <br><br>
+        <div class="button-container">
+            <input class="button" type="submit" value="Ответить" />
+        </div>             
+    </form>
+</div>  
+{% endblock %}
